@@ -1,0 +1,86 @@
+.container-section-5 {
+  width: 100%;
+  height: 80vh;
+  min-height: 350px;
+  flex-wrap: wrap;
+}
+
+.container-card-1 {
+  width: 100%;
+  max-width: 394px;
+}
+
+div.container-section-5 section .perfil-photo-1 {
+  width: 52px;
+  position: absolute;
+  top: -18px;
+  right: 95%;
+}
+
+div.container-section-5 section .container-card-1 .Btn {
+  cursor: pointer;
+}
+
+section h2 span.orange {
+  color: var(--orange);
+}
+
+section h2.Volkhov {
+  font: 700 48px "Volkhov", serif;
+}
+
+.container-section-5 section .container-card-1 p.text-card-1 {
+  font: 400 16px "Poppins", sans-serif;
+  color: var(--color-2);
+}
+
+.container-card-2 {
+  position: relative;
+  width: 100%;
+  max-width: 541px;
+  background-color: var(--white);
+  border: 1px black;
+  border-radius: 12px;
+  box-shadow: 0px 0px 2px 0px var(--color-2);
+  z-index: 1000;
+}
+
+section p.text-card-2 {
+  font: 500 16px "Poppins", sans-serif;
+}
+
+.container-section-5 section span.name-card-2 {
+  font: 600 18px "Poppins", sans-serif;
+}
+
+.container-section-5 section span.country-card-2 {
+  font: 500 14px "Poppins", sans-serif;
+  color: var(--color-2);
+}
+
+.container-section-5 section .container-card-2 img.Element-section-5 {
+  width: 100px;
+  position: absolute;
+  left: 100%;
+  top: -20%;
+}
+
+.container-card-3 {
+  position: absolute;
+  top: 40%;
+  left: 51%;
+  width: 100%;
+  max-width: 500px;
+  height: 232px;
+  border: 1px black;
+  border-radius: 12px;
+  box-shadow: 0px 0px 2px 0px rgba(102, 102, 102, 8%);
+  z-index: 1;
+}
+
+.text-container-card-3 {
+  background-color: rgb(102, 102, 102, 8%);
+  border: 1px black;
+  border-radius: 12px;
+  box-shadow: 0px 0px 2px 0px rgba(102, 102, 102, 0.8);
+}
