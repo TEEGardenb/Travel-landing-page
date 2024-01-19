@@ -97,7 +97,7 @@ const Footer = () => {
                 />
               </span>
             </div>
-            <ul className="content-footer_2 d-flex flex-column align-items-center align-items-lg-start">
+            <ul className="content-footer_2 d-flex flex-column align-items-center align-items-lg-start ps-0 ps-lg-4">
               <li className="title-list">Company</li>
               <li>
                 <a href="#">About</a>
@@ -112,7 +112,7 @@ const Footer = () => {
                 <a href="#">Privacy & Policy</a>
               </li>
             </ul>
-            <ul className="content-footer_2 d-flex flex-column align-items-center align-items-lg-start">
+            <ul className="content-footer_2 d-flex flex-column align-items-center align-items-lg-start ps-0 ps-lg-4">
               <li className="title-list">Contact</li>
               <li>
                 <a href="#">Help/FAQ</a>
@@ -124,7 +124,7 @@ const Footer = () => {
                 <a href="#">Affilates</a>
               </li>
             </ul>
-            <ul className="content-footer_2 d-flex flex-column align-items-center align-items-lg-start">
+            <ul className="content-footer_2 d-flex flex-column align-items-center align-items-lg-start ps-0 ps-lg-4">
               <li className="title-list">More</li>
               <li>
                 <a href="#">Press Cente</a>

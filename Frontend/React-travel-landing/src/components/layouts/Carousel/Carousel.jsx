@@ -1,12 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Images
-import Image_1 from "../../../../public/images/Image_1.png";
-import Image_2 from "../../../../public/images/Image_2.png";
-import Image_3 from "../../../../public/images/Image_3.png";
-import Image_4 from "../../../../public/images/Image_4.png";
+// import de imagenes
 import star from "../../../../public/images/star.png";
 import map from "../../../../public/images/map.png";
 
@@ -19,7 +15,29 @@ import "./styles.css";
 // import required modules
 import { Pagination } from "swiper/modules";
 
+// import del imageMapping
+import idToImage from "../../../../public/imageMapping";
+
+// Carousel de descuentos ;-)
 export default function Carousel() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/post/");
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  // filtrar la data con los descuentos
+  const destinosConDescuento = data.filter(
+    (destino) => destino.descuento === true
+  );
   return (
     <>
       <Swiper
@@ -45,70 +63,44 @@ export default function Carousel() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className="card-1 card-section-3">
-            <div className="img-container">
-              <div className="div-effect"></div>
-              <button className="btn-color">Book Now</button>
-              <img src={Image_1} className="img-div-effect" alt="Madrid" />
-            </div>
-            <div className="card-body p-2">
-              <div className="d-flex justify-content-between">
-                <h5>Madrid</h5>
-                <span className="d-flex align-items-center">
-                  <img src={star} className="me-2" alt="star" />
-                  4.8
-                </span>
+        {destinosConDescuento.map((destino) => (
+          <SwiperSlide key={destino.id}>
+            <div className="card-1 card-section-3">
+              <div className="img-container">
+                <div className="div-effect"></div>
+                <button className="btn-color">Book Now</button>
+                <img
+                  src={idToImage[destino.id]}
+                  className="img-div-effect"
+                  alt={destino.ciudad}
+                />
               </div>
-              <div className="d-flex justify-content-between">
-                <span className="d-flex align-items-center">
-                  <img src={map} alt="map" />
-                  Spain
-                </span>
-                <span>
-                  <span className="price me-3">$950</span>
-                  <span className="orange">$850</span>
-                </span>
+              <div className="card-body p-2">
+                <div className="d-flex justify-content-between">
+                  <h5>{destino.ciudad}</h5>
+                  <span className="d-flex align-items-center">
+                    <img src={star} className="me-2" alt="star" />
+                    {destino.rating}
+                  </span>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <span className="d-flex align-items-center">
+                    <img src={map} alt="map" />
+                    {destino.pais}
+                  </span>
+                  <span>
+                    <span className="price me-3">
+                      ${destino.precio_original}
+                    </span>
+                    <span className="orange">
+                      ${destino.precio_con_descuento}
+                    </span>
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="card-2 card-section-3">
-            <img src={Image_2} alt="Firenze" />
-            <div className="card-body">
-              <h5>Firenze</h5>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="card-3 card-section-3">
-            <img src={Image_3} alt="Paris" />
-            <div className="card-body"></div>
-            <h5>Paris</h5>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="card-4 card-section-3">
-            <img src={Image_4} alt="London" />
-            <div className="card-body"></div>
-            <h5>London</h5>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="card-1 card-section-3">
-            <img src={Image_1} alt="Madrid" />
-            <div className="card-body"></div>
-            <h5>Madrid</h5>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="card-3 card-section-3">
-            <img src={Image_3} alt="Paris" />
-            <div className="card-body"></div>
-            <h5>Paris</h5>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

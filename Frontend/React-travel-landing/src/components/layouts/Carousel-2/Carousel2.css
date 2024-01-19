@@ -22,8 +22,15 @@
     top: 0px;
     left: 88%;
     z-index: 200;
-    cursor: pointer;
     width: 6rem;
+  }
+
+  .swiper-button-prev {
+    cursor: pointer;
+  }
+
+  .swiper-button-next {
+    cursor: pointer;
   }
 
   .card-section-4:hover {
