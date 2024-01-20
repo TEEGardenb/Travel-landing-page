@@ -49,11 +49,11 @@ export default function Carousel() {
         breakpoints={{
           640: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 40,
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 10,
           },
           1024: {
             slidesPerView: 4,
@@ -64,7 +64,7 @@ export default function Carousel() {
         className="mySwiper"
       >
         {destinosConDescuento.map((destino) => (
-          <SwiperSlide key={destino.id}>
+          <SwiperSlide key={destino.id} className="mb-3">
             <div className="card-1 card-section-3">
               <div className="img-container">
                 <div className="div-effect"></div>

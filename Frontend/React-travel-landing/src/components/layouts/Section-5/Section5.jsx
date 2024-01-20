@@ -9,7 +9,7 @@ import perfil_photo from "../../../../public/images/Image_8.png";
 const Section5 = () => {
   return (
     <div
-      classNameNameName="section_4-component"
+      className="section_4-component"
       style={{
         background: "#f7f8fc",
         minHeight: "540px",

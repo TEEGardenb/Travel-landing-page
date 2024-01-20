@@ -1,12 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Images
-import Image_6 from "../../../../public/images/Image_6.png";
-import Image_2 from "../../../../public/images/Image_7.png";
-import Image_3 from "../../../../public/images/Image_7.png";
-import Image_4 from "../../../../public/images/Image_4.png";
 import star from "../../../../public/images/star.png";
 import NavIcon from "../../../../public/images/Navigation.png";
 import btnPrev from "../../../../public/images/Btn-1.png";
@@ -21,7 +17,27 @@ import "./Carousel2.css";
 // import required modules
 import { Navigation, Pagination } from "swiper/modules";
 
+// import del imageMapping
+import idToImage from "../../../../public/imageMapping";
+
 export default function Carousel2() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/post/");
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  // filtrar la data con los descuentos
+  const mayorRating = data.filter((r) => r.rating > 4);
+
   return (
     <>
       <div className="container-carousel2">
@@ -33,9 +49,11 @@ export default function Carousel2() {
             <img src={btnNext} alt="btn-next" />
           </div>
         </div>
+
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
+          simulateTouch={false}
           pagination={{
             clickable: false,
           }}
@@ -60,68 +78,42 @@ export default function Carousel2() {
           modules={[Navigation, Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="card-1 card-section-4">
-              <div className="img-container">
-                <div className="div-effect-carousel2"></div>
-                <img src={Image_6} className="img-div-effect" alt="Rome" />
-              </div>
-              <div className="card-body p-2">
-                <div className="d-flex justify-content-between mb-3">
-                  <h5>Rome, italy</h5>
-                  <span className="orange size-carousel2">$5,42K</span>
+          {mayorRating.map((r) => (
+            <SwiperSlide key={r.id} className="mb-3">
+              <div className="card-1 card-section-4">
+                <div className="img-container-carousel2">
+                  <div className="div-effect-carousel2"></div>
+                  <img
+                    src={idToImage[r.id]}
+                    className="img-div-effect"
+                    alt="Rome"
+                  />
                 </div>
-                <div className="d-flex justify-content-between">
-                  <span className="d-flex align-items-center gap-2">
-                    <img src={NavIcon} alt="map" />
-                    <p className="m-0">10 Days Trip</p>
-                  </span>
-                  <span>
-                    <span className="d-flex align-items-center">
-                      <img src={star} className="me-2" alt="star" />
-                      4.8
+                <div className="card-body p-2">
+                  <div className="d-flex justify-content-between mb-3">
+                    <h5>
+                      {r.ciudad}, {r.pais}
+                    </h5>
+                    <span className="orange size-carousel2">
+                      ${r.precio_original}
                     </span>
-                  </span>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <span className="d-flex align-items-center gap-2">
+                      <img src={NavIcon} alt="map" />
+                      <p className="m-0">10 Days Trip</p>
+                    </span>
+                    <span>
+                      <span className="d-flex align-items-center">
+                        <img src={star} className="me-2" alt="star" />
+                        {r.rating}
+                      </span>
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="card-2 card-section-4">
-              <img src={Image_2} alt="Firenze" />
-              <div className="card-body">
-                <h5>Firenze</h5>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="card-3 card-section-4">
-              <img src={Image_3} alt="Paris" />
-              <div className="card-body"></div>
-              <h5>Paris</h5>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="card-4 card-section-4">
-              <img src={Image_6} alt="London" />
-              <div className="card-body"></div>
-              <h5>London</h5>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="card-1 card-section-4">
-              <img src={Image_6} alt="Madrid" />
-              <div className="card-body"></div>
-              <h5>Madrid</h5>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="card-3 card-section-4">
-              <img src={Image_3} alt="Paris" />
-              <div className="card-body"></div>
-              <h5>Paris</h5>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </>

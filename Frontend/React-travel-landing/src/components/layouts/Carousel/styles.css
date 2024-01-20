@@ -83,7 +83,7 @@
 
   .div-effect:hover {
     background-color: black;
-    cursor: pointer;
+    cursor: grab;
     opacity: 0.4;
   }
 
