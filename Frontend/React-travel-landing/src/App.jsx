@@ -9,6 +9,7 @@ import Section3 from "./components/layouts/Section-3/Section3";
 import Section4 from "./components/layouts/Section-4/Section4";
 import Section5 from "./components/layouts/Section-5/Section5";
 import Footer from "./components/layouts/Footer/Footer";
+import Section6 from "./components/layouts/Section-6/Section6";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,6 +23,7 @@ function App() {
         <Section3 />
         <Section4 />
         <Section5 />
+        <Section6 />
         <Footer />
       </main>
     </div>

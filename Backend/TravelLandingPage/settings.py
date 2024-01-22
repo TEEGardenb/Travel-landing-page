@@ -60,6 +60,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # puerto del servidor frontend
+    "http://*",
 ]
 
 ROOT_URLCONF = 'TravelLandingPage.urls'

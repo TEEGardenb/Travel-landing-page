@@ -1,8 +1,5 @@
 import React from "react";
-import Image_1 from "../../../../public/images/Image_1.png";
-import Image_2 from "../../../../public/images/Image_2.png";
-import Image_3 from "../../../../public/images/Image_3.png";
-import Image_4 from "../../../../public/images/Image_4.png";
+
 import Carousel from "../Carousel/Carousel";
 
 const Section3 = () => {

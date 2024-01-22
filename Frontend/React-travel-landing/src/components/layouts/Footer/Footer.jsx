@@ -7,7 +7,7 @@ const Footer = () => {
     <div
       className="section_4-component"
       style={{
-        background: "#fefcfb",
+        background: "#f7f8fc",
         minHeight: "540px",
       }}
     >
@@ -49,11 +49,11 @@ const Footer = () => {
               src="images/Ellipse 24.png"
               alt="Ellipse"
             />
-            <div className="contet-section-footer container d-flex flex-column">
+            <div className="contet-section-footer d-flex flex-column align-items-center px-4">
               <h2 className="title-contet-section-footer text-center">
                 Subscribe and get exclusive deals & offer
               </h2>
-              <form action="#">
+              <form action="#" className="w-100">
                 <div className="input-container">
                   <input
                     className="input-field w-100 rounded-2 border-0 px-3"

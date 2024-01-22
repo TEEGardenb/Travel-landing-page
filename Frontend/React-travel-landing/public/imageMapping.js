@@ -9,6 +9,7 @@ import Image_5 from "./images/Image_5.png";
 import Image_6 from "./images/Image_m.png";
 import Image_7 from "./images/Image_7.png";
 import Image_15 from "./images/Image_15.jpeg";
+import Varsovia from "./images/Varsovia.jpg";
 
 // Objeto que mapea el id del destino a la imagen correspondiente
 const idToImage = {
@@ -20,6 +21,7 @@ const idToImage = {
   7: Image_6,
   8: Image_15,
   9: Image_7,
+  10: Varsovia,
 };
 
 export default idToImage;
