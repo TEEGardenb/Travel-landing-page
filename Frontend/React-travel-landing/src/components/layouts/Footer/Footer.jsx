@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Footer.css";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
   return (
     <div
       className="section_4-component"
@@ -53,14 +54,24 @@ const Footer = () => {
               <h2 className="title-contet-section-footer text-center">
                 Subscribe and get exclusive deals & offer
               </h2>
-              <form action="#" className="w-100">
+              <form
+                action="#"
+                className="w-100"
+                onSubmit={(ev) => ev.preventDefault()}
+              >
                 <div className="input-container">
                   <input
                     className="input-field w-100 rounded-2 border-0 px-3"
                     type="email"
+                    name="email"
+                    value={email}
                     placeholder="Enter your mail"
+                    onChange={(ev) => setEmail(ev.target.value)}
                   />
-                  <button className="btn__section-footer border-0 rounded-2 py-3 px-4">
+                  <button
+                    className="btn__section-footer border-0 rounded-2 py-3 px-4"
+                    type="submit"
+                  >
                     subscribe
                   </button>
                 </div>

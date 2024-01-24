@@ -9,6 +9,7 @@ const Section2 = () => {
   return (
     <div
       className="section_2-component container-fluid d-flex align-items-between"
+      id="section_2"
       style={{
         background: "#f7f8fc",
         minHeight: "540px",

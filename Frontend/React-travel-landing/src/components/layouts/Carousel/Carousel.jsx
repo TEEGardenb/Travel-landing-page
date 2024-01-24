@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+//
+import { Link } from "react-router-dom";
 
 // import de imagenes
 import star from "../../../../public/images/star.png";
@@ -10,6 +12,7 @@ import map from "../../../../public/images/map.png";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// Estilos del carousel
 import "./styles.css";
 
 // import required modules
@@ -20,6 +23,7 @@ import idToImage from "../../../../public/imageMapping";
 
 // Carousel de descuentos ;-)
 export default function Carousel() {
+  // Obtener informacion de la API con async await
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -68,7 +72,9 @@ export default function Carousel() {
             <div className="card-1 card-section-3">
               <div className="img-container">
                 <div className="div-effect"></div>
-                <button className="btn-color">Book Now</button>
+                <Link to={`/Destino/${destino.id}`}>
+                  <button className="btn-color">Book Now</button>
+                </Link>
                 <img
                   src={idToImage[destino.id]}
                   className="img-div-effect"

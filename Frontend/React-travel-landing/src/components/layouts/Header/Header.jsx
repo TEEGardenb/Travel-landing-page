@@ -23,7 +23,7 @@ const Header = () => {
               A team of experienced tourism professionals will provide you with
               the best advice and tips for you desire place.
             </p>
-            <button type="button" className="btn btn-light">
+            <button type="button" className="btn btn-primary">
               Discover Now
             </button>
           </div>
