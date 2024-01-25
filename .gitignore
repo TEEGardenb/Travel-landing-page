@@ -2,3 +2,4 @@
 env1/
 .env
 Frontend/
+.gitignore
