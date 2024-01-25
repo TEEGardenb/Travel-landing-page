@@ -1,9 +1,0 @@
-button.signOut-btn {
-  color: orange;
-}
-
-.signOut-btn:hover {
-  background-color: orange;
-  border-color: black;
-  transition: 0.5;
-}
