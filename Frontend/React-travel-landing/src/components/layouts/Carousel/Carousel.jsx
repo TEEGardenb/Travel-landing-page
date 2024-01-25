@@ -70,17 +70,18 @@ export default function Carousel() {
         {destinosConDescuento.map((destino) => (
           <SwiperSlide key={destino.id} className="mb-3">
             <div className="card-1 card-section-3">
-              <div className="img-container">
-                <div className="div-effect"></div>
-                <Link to={`/Destino/${destino.id}`}>
+              <Link to={`/Destino/${destino.id}`}>
+                <div className="img-container">
+                  <div className="div-effect"></div>
                   <button className="btn-color">Book Now</button>
-                </Link>
-                <img
-                  src={idToImage[destino.id]}
-                  className="img-div-effect"
-                  alt={destino.ciudad}
-                />
-              </div>
+
+                  <img
+                    src={idToImage[destino.id]}
+                    className="img-div-effect"
+                    alt={destino.ciudad}
+                  />
+                </div>
+              </Link>
               <div className="card-body p-2">
                 <div className="d-flex justify-content-between">
                   <h5>{destino.ciudad}</h5>

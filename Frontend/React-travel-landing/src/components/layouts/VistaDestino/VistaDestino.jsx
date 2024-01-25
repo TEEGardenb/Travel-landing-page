@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 // Hook de react-router-dom
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 // import del imageMapping
 import idToImage from "../../../../public/imageMapping";
 
@@ -63,6 +63,7 @@ const VistaDestino = () => {
               </span>
             </div>
             <p>{destino.description}</p>
+            <Link to="/">Regresar</Link>
           </div>
         </div>
       ) : (

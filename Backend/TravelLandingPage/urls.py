@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Api.urls import router_Destino
+from Api.views import suscripcion_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router_Destino.urls)),
+    path('suscribir/', suscripcion_view, name="suscripcion_view"),
 ]

@@ -93,6 +93,10 @@ li {
   color: var(--color-2);
 }
 
+.cursor-pinter {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 572px) {
   .title-contet-section-footer {
     width: 100%;
