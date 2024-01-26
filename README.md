@@ -1,6 +1,6 @@
 # Frontend
 
-![Frontend](./Fronted/React-travel-landing/TravelAgencyLandingPage-designdesktop.png)
+![Frontend](./Frontend/React-travel-landing/TravelAgencyLandingPage-designdesktop.png)
 
 ## Welcome! 👋
 
